@@ -31,6 +31,7 @@ class db_connection:
 
                 # Fetch the result
                 result = cursor.fetchone()
+                cursor.close()
 
                 if result:
                     status = result[0]
