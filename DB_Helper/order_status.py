@@ -3,11 +3,7 @@ from Exception.logger import logging
 import sys
 from Exception.exception import CustomException
 
-
-
-
-
-class db_connection:
+class StatusOrderId:
     def __init__(self):
         self.connection = con.connect(
             host='localhost',
@@ -17,7 +13,7 @@ class db_connection:
             database='pandeyji_eatery',
             auth_plugin='mysql_native_password'
         )
-
+    
     def get_order_status(self, order_id):
         try:
             logging.info("Let's start the db connection")
@@ -28,6 +24,7 @@ class db_connection:
                 # Execute the query to retrieve the status for the given order_id
                 query = f"SELECT status FROM order_tracking WHERE order_id = {order_id}"
                 cursor.execute(query)
+
 
                 # Fetch the result
                 result = cursor.fetchone()

@@ -4,6 +4,7 @@ from Exception.exception import CustomException
 import sys
 from Scripts.track_order import tracking_order
 from Scripts.adding_order import add_to_order
+from Scripts.complete_order import complete_order
 from Scripts.generic_helper import extract_section_id
 
 
@@ -25,9 +26,10 @@ async def handle_request(request : Request):
         intent_handler_dict = {
             "order.add-context: ongoing-order" : add_to_order,
             # "order.remove-context-ongoing-order" : remove_order,
-            # " order.complete-context: ongoing-order" : complete_order,
-            # 'track.order - context: ongoing-tracking' : tracking_order
+            "order.complete-context: ongoing-order" : complete_order,
+            'track.order - context: ongoing-tracking' : tracking_order
         }
+        
         logging.info(f"FulfillmentText is successfully connected")  
         
         return intent_handler_dict[intent](parameters, section_id)

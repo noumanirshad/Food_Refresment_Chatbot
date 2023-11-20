@@ -2,7 +2,6 @@ from Exception.logger import logging
 from Exception.exception import CustomException
 import sys
 from fastapi.responses import JSONResponse
-from Scripts.db_helper import db_connection
 from Scripts.generic_helper import get_str_from_food_dict
 
 
