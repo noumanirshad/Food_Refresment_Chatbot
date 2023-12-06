@@ -48,11 +48,15 @@ def save_to_order(order):
         track_id = TrackOrderId()
         next_order_id = next_id.get_next_order_id()
         for item , quantity in order.items():
+            item_id = insert_id.fetch_item_id_by_name(item)
+            price = insert_id.fetch_price_by_name(item)
             recode = insert_id.insert_order_id(
-                item,
+                next_order_id,
+                item_id,
                 quantity,
-                next_order_id
+                price
             )
+            logging.info(f"insert_order = {recode}")
             if recode == -1:
                 return -1
         

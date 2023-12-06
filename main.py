@@ -5,6 +5,7 @@ import sys
 from Scripts.track_order import tracking_order
 from Scripts.adding_order import add_to_order
 from Scripts.complete_order import complete_order
+from Scripts.price_Item import Price_Items
 from Scripts.remove_order import remove_order_item
 from Scripts.generic_helper import extract_section_id
 from Scripts.delete_order import delete_to_order
@@ -33,6 +34,7 @@ async def handle_request(request : Request):
             "order.add-context: ongoing-order" : add_to_order,
             "order.remove-context-ongoing-order" : remove_order_item,
             "order.complete-context: ongoing-order" : complete_order,
+            "Pricing Intent:" : Price_Items,
             'track.order - context: ongoing-tracking' : tracking_order,
             'delete_order-context: ongoing-order' : delete_to_order
         }

@@ -31,7 +31,7 @@ def add_to_order(parameters, section_id : str):
                 logging.info("Lets Adding 1st Order to a dict")
             
             order_str = get_str_from_food_dict(inprogrss_order[section_id])
-            fulfillment = f"So far you have:  [{order_str}].  Do you need anything else?"
+            fulfillment = f"So far you have:  [{order_str}].  Is this your Final order? Can we lock your order? Or Do you need something else?"
         
         logging.info(f"Your food_items and food_quantity is successfully added")
 
